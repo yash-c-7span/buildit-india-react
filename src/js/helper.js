@@ -17,3 +17,15 @@ export const setToken = (token) => {
     localStorage.setItem('token', `Bearer ${token}`);
     return true;
 }
+
+const getToken = () => {
+    return localStorage.getItem('token');
+}
+
+export const getHeaders = () => {
+    
+    return {
+        'Authorization':`Bearer ${getToken()}`,
+        'X-Requested-With':'XMLHttpRequest',
+    };
+}
